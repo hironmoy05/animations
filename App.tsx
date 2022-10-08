@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { FirstAnimation } from './src/components';
+import { PanGesture } from './src/components';
 
 const App = () => {
   return (
-    <FirstAnimation />
+    <PanGesture />
   )
 }
 
