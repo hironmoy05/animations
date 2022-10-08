@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View, Dimensions, Pressable } from 'react-native';
-import Animated, { useAnimatedStyle, useSharedValue, withTiming, withRepeat } from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, useSharedValue, withTiming, withRepeat, Easing } from 'react-native-reanimated';
 
 const { width: windowWidth } = Dimensions.get('window');
 
@@ -31,9 +31,9 @@ const FirstAnimation: React.FC = () => {
 
     useEffect(() => {
         progress.value = clicked ? withRepeat(withTiming(.5, { duration: 1000 }), -1, true) : withTiming(1);
-        progressWidth.value = clicked ? withRepeat(withTiming(windowWidth / 3, { duration: 1000 }), -1, true) : withTiming(10);
-        progressScale.value = clicked ? withRepeat(withTiming(1.5, { duration: 1000 }), -1, true) : withTiming(1);
-        progressRotate.value = clicked ? withRepeat(withTiming(1), -1, true) : withTiming(0);
+        progressWidth.value = clicked ? withRepeat(withTiming(windowWidth / 3, { duration: 1000 }), -1, true) : withTiming((Math.random() * 10) + 5);
+        progressScale.value = clicked ? withRepeat(withTiming(1.5, { duration: 1000 }), -1, true) : withTiming(1, { duration: 1000, easing: Easing.bounce });
+        progressRotate.value = clicked ? withRepeat(withTiming(1), -1, true) : withTiming(Math.random(), { duration: 1000 });
     }, [clicked])
 
     return (
