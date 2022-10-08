@@ -54,7 +54,7 @@ const PanGesture: React.FC = () => {
             { translateX: withSpring(start.value.x) },
             { translateY: withSpring(start.value.y) }
         ],
-        backgroundColor: isPressed.value ? 'rgba(255, 0, 0, .7)' : 'rgba(0, 0, 255, .8)'
+        backgroundColor: isPressed.value ? 'rgba(255, 0, 0, .7)' : 'rgba(0, 0, 255, .5)'
     }), [start, isPressed])
 
     return (
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         height: SIZE * 3,
         borderRadius: CIRCLE,
         borderWidth: 4,
-        borderColor: 'blue',
+        borderColor: 'rgba(0, 0, 255, .5)',
         alignItems: 'center',
         justifyContent: 'center'
     }
