@@ -129,6 +129,12 @@ def reactNativeArchitectures() {
     return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
 }
 
+task wrapper(type: Wrapper){
+    gradleVersion = '7.5.1'
+}
+
+task prepareKotlinBuildScriptModel {}
+
 android {
     ndkVersion rootProject.ext.ndkVersion
 
